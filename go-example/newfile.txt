@@ -1,1 +1,1 @@
-287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.8
+287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.9
