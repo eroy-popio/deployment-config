@@ -51,7 +51,7 @@ data:
         connect_timeout: 0.5s
         type: STRICT_DNS
         lb_policy: ROUND_ROBIN
-        http2_protocol_options: {}
+        # http2_protocol_options: {}
         load_assignment:
           cluster_name: go-app1
           endpoints:
@@ -65,7 +65,7 @@ data:
         connect_timeout: 0.5s
         type: STRICT_DNS
         lb_policy: ROUND_ROBIN
-        http2_protocol_options: {}
+        # http2_protocol_options: {}
         load_assignment:
           cluster_name: go-app2
           endpoints:
@@ -75,12 +75,12 @@ data:
                   socket_address:
                     address: go-app2-service.default.svc.cluster.local
                     port_value: 3000
-        health_checks:
-          timeout: 1s
-          interval: 10s
-          unhealthy_threshold: 2
-          healthy_threshold: 2
-          grpc_health_check: {}
+        # health_checks:
+        #   timeout: 1s
+        #   interval: 10s
+        #   unhealthy_threshold: 2
+        #   healthy_threshold: 2
+        #   grpc_health_check: {}
     admin:
       access_log_path: "/dev/stdout"
       address:
