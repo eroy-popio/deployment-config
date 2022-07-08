@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-app2-service
+spec:
+  type: ClusterIP
+  clusterIP: None
+  selector:
+    app: go-app2
+  ports:
+  - name: http2-service
+    protocol: TCP
+    port: 3000
