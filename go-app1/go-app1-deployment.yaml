@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: go-app1-deployment
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: go-app1
-  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
         app: go-app1
     spec:
       containers:
-      - name: go-app
-        env: 
-          - name: APPNAME
-            value: app1
-        image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:latest
+      - env:
+        - name: APPNAME
+          value: app1
+        image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        name: go-app
         ports:
         - containerPort: 3000
