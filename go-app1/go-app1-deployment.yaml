@@ -16,7 +16,7 @@ spec:
       - env:
         - name: APPNAME
           value: app1
-        image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.23
+        image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.24
         name: go-app
         ports:
         - containerPort: 3000
