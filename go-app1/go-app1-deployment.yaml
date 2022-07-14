@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-app1-deployment
   labels:
     app: go-app1
+  name: go-app1-deployment
 spec:
   replicas: 2
   selector:
@@ -15,22 +15,22 @@ spec:
         app: go-app1
     spec:
       containers:
-      - name: go-app
-        env:
+      - env:
         - name: APPNAME
           value: app1
         image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.58
+        name: go-app
         ports:
         - containerPort: 3000
-      - name: envoy
-        image: envoyproxy/envoy:v1.9.1
-        resources: {}
+      - image: envoyproxy/envoy:v1.9.1
+        name: envoy
         ports:
         - containerPort: 8786
+        resources: {}
         volumeMounts:
-        - name: config
-          mountPath: /etc/envoy
+        - mountPath: /etc/envoy
+          name: config
       volumes:
-        - name: config
-          configMap:
-            name: envoy-sidecar
+      - configMap:
+          name: envoy-sidecar
+        name: config
