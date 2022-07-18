@@ -5,7 +5,7 @@ metadata:
     app: go-app2
   name: go-app2-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: go-app2
