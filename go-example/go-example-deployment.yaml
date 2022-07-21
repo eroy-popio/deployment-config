@@ -13,7 +13,7 @@ spec:
         app: go-example
     spec:
       containers:
-      - image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.61
+      - image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.62
         name: go-example
         ports:
         - containerPort: 3000
