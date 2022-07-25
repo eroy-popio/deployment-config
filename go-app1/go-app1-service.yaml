@@ -8,6 +8,6 @@ spec:
   selector:
     app: go-app1
   ports:
-  - name: go-app1-service
+  - name: go-app1-http
     protocol: TCP
     port: 3000

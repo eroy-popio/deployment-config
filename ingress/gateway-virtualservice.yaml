@@ -47,5 +47,6 @@ spec:
       route:
         - destination:
             host: go-app2-service
+            subset: active
             port:
               number: 3000
