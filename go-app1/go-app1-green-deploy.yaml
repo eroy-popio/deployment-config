@@ -4,7 +4,6 @@ metadata:
   labels:
     app: go-app1
     deploy: green
-    version: v0.1.63
   name: go-app1-green-deploy
 spec:
   replicas: 2

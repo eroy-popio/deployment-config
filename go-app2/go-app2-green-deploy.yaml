@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: go-app2
-    version: v0.1.63
     deploy: green
   name: go-app2-green-deploy
 spec:
