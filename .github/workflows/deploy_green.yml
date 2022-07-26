@@ -21,7 +21,7 @@ jobs:
       id: getImage
       uses: mikefarah/yq@master
       with:
-        cmd: yq '.spec.template.spec.containers.image' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
+        cmd: yq '.spec.template.spec.containers[0].image' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
 
     - name: Echo version and image
       run: |
