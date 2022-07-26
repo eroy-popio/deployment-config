@@ -15,7 +15,7 @@ jobs:
       id: getVersionAndImage
       uses: mikefarah/yq@master
       with:
-        cmd: yq 'spec.template' './go-app1/go-app1-blue-deploy.yaml'
+        cmd: yq '.spec.template' './go-app1/go-app1-blue-deploy.yaml'
     
     - name: Echo version
       run: echo ${{ steps.getVersionAndImage.metadata.labels.version }}
