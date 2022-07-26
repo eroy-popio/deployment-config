@@ -16,9 +16,17 @@ jobs:
       uses: mikefarah/yq@master
       with:
         cmd: yq '.spec.template' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
-    
+
     - name: Echo version
       run: echo ${{ steps.getVersionAndImage.metadata.labels.version }}
       
     - name: Echo image
       run: echo ${{ steps.getVersionAndImage.spec.containers.image }}
+
+    - name: Echo getVersionAndImage
+      run: echo ${{ steps.getVersionAndImage }}
+        
+    - name: Update Version and Image to config 
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq -i '.spec.template.metadata.labels.version = ${{ steps.getVersionAndImage.metadata.labels.version }} | .spec.template.spec.containers.image = ${{ steps.getVersionAndImage.spec.containers.image }}' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
