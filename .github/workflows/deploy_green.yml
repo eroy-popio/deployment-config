@@ -41,5 +41,5 @@ jobs:
        cd deployment-config
        git config user.email ${GITHUB_EMAIL}
        git config user.name ${GITHUB_NAME}
-       git commit -m "Make changes to green deployment"
+       git commit -am "Make changes to green deployment"
        git push
