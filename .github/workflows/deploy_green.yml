@@ -32,3 +32,10 @@ jobs:
       uses: mikefarah/yq@master
       with:
         cmd: yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage.outputs.result }}"' 'deployment-config/go-app1/go-app1-green-deploy.yaml'
+
+    - name: Commit and push changes
+      run: |
+       pwd
+       ls
+       git commit -m "Make changes to green deployment"
+       git push
