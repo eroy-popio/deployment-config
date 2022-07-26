@@ -1,0 +1,24 @@
+name: Get Image and Version from yml file
+
+on:
+  workflow_dispatch:
+jobs:
+  get-and-run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        path: deployment-config
+        
+    - name: Get Version and Image from config 
+      id: getVersionAndImage
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq 'spec.template' './go-app1/go-app1-blue-deploy.yaml'
+    
+    - name: Echo version
+      run: echo ${{ getVersionAndImage.metadata.labels.version }}
+      
+    - name: Echo image
+      run: echo ${{ getVersionAndImage.spec.containers.image }}
