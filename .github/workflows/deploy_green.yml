@@ -35,6 +35,7 @@ jobs:
 
     - name: Commit and push changes
       run: |
+       cd deployment-config
        pwd
        ls
        git commit -m "Make changes to green deployment"
