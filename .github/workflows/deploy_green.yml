@@ -31,4 +31,4 @@ jobs:
     - name: Update Version and Image to config 
       uses: mikefarah/yq@master
       with:
-        cmd: yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage.outputs.result }}"' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
+        cmd: yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage.outputs.result }}"' 'deployment-config/go-app1/go-app1-green-deploy.yaml'
