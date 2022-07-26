@@ -34,9 +34,12 @@ jobs:
         cmd: yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage.outputs.result }}"' 'deployment-config/go-app1/go-app1-green-deploy.yaml'
 
     - name: Commit and push changes
+      env:
+        GITHUB_EMAIL: satvik@eltropy.com
+        GITHUB_NAME: deploy-green
       run: |
        cd deployment-config
-       pwd
-       ls
+       git config user.email ${GITHUB_EMAIL}
+       git config user.name ${GITHUB_NAME}
        git commit -m "Make changes to green deployment"
        git push
