@@ -19,6 +19,7 @@ jobs:
 
     - name: Echo version
       run: |
+       echo ${{ steps.getVersionAndImage.outputs.result }}
        echo ${{ steps.getVersionAndImage.metadata }}
        echo ${{ steps.getVersionAndImage.metadata.labels }}
        echo ${{ steps.getVersionAndImage.metadata.labels.version }}
