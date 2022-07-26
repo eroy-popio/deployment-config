@@ -18,10 +18,16 @@ jobs:
         cmd: yq '.spec.template' 'deployment-config/go-app1/go-app1-blue-deploy.yaml'
 
     - name: Echo version
-      run: echo ${{ steps.getVersionAndImage.metadata.labels.version }}
+      run: |
+       echo ${{ steps.getVersionAndImage.metadata }}
+       echo ${{ steps.getVersionAndImage.metadata.labels }}
+       echo ${{ steps.getVersionAndImage.metadata.labels.version }}
       
     - name: Echo image
-      run: echo ${{ steps.getVersionAndImage.spec.containers.image }}
+      run: |
+       echo ${{ steps.getVersionAndImage.spec }}
+       echo ${{ steps.getVersionAndImage.spec.containers }}
+       echo ${{ steps.getVersionAndImage.spec.containers.image }}
 
     - name: Echo getVersionAndImage
       run: echo ${{ steps.getVersionAndImage }}
