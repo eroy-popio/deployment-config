@@ -20,13 +20,13 @@ spec:
     metadata:
       labels:
         app: go-app3
-        version: v0.1.70
+        version: v0.1.71
     spec:
       containers:
-      - image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.70
-        name: go-app
-        env:
-          - name: APPNAME
-            value: app3
-        ports:
-          - containerPort: 3000
+        - image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.71
+          name: go-app
+          env:
+            - name: APPNAME
+              value: app3
+          ports:
+            - containerPort: 3000
