@@ -7,7 +7,7 @@ spec:
   subsets:
     - name: active
       labels:
-        deploy: green
+        version: v0.1.63
     - name: preview
       labels:
-        deploy: blue
+        version: v0.1.68
