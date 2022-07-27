@@ -24,3 +24,4 @@ jobs:
         argocd app wait go-app1 --insecure
         argocd app sync go-app2 --insecure
         argocd app wait go-app2 --insecure
+        argocd app sync go-app3 --insecure

@@ -46,6 +46,7 @@ jobs:
         cmd: | 
          yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion1.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage1.outputs.result }}"' 'deployment-config/go-app1/go-app1-green-deploy.yaml'
          yq -i '.spec.template.metadata.labels.version = "${{ steps.getVersion2.outputs.result }}" | .spec.template.spec.containers[0].image = "${{ steps.getImage2.outputs.result }}"' 'deployment-config/go-app2/go-app2-green-deploy.yaml'
+         yq -i '.spec.subsets[0].labels.version = "${{ steps.getVersion2.outputs.result }}"' 'deployment-config/go-app2/go-app2-destination.yaml'
 
     - name: Commit and push changes
       env:
@@ -71,3 +72,5 @@ jobs:
         argocd app wait go-app1 --insecure
         argocd app sync go-app2 --insecure
         argocd app wait go-app2 --insecure
+        argocd app actions run go-app3 resume --kind=Rollout --insecure
+        argocd app wait go-app3 --insecure
