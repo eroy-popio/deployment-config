@@ -1,32 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: go-app3-rollout-bluegreen
   labels:
     app: go-app3
+  name: go-app3-rollout-bluegreen
 spec:
   replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: go-app3
+  strategy:
+    blueGreen:
+      activeService: go-app3-service
+      autoPromotionEnabled: false
+      previewReplicaCount: 1
+      previewService: go-app3-preview-service
   template:
     metadata:
       labels:
         app: go-app3
-        version: v0.1.68
+        version: v0.1.70
     spec:
       containers:
-        - env:
-          - name: APPNAME
-            value: app3
-          image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.68
-          name: go-app
-          ports:
-            - containerPort: 3000
-  strategy:
-    blueGreen:
-      activeService: go-app3-service
-      previewService: go-app3-preview-service
-      autoPromotionEnabled: false
-      previewReplicaCount: 1
+      - image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.70
+        name: go-app
