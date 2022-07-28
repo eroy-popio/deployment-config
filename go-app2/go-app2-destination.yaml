@@ -7,7 +7,7 @@ spec:
   subsets:
     - name: active
       labels:
-        version: v0.1.71
+        version: v0.1.74
     - name: preview
       labels:
         version: v0.1.74
