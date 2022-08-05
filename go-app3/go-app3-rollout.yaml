@@ -28,5 +28,7 @@ spec:
           env:
             - name: APPNAME
               value: app3
+            - name: MONGO_SVC
+              value: mongo-service.default
           ports:
             - containerPort: 3000
