@@ -22,6 +22,8 @@ spec:
       - env:
         - name: APPNAME
           value: app1
+        - name: MONGO_SVC
+          value: mongo-service.default
         image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.78
         name: go-app
         ports:
