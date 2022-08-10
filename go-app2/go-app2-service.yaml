@@ -4,10 +4,11 @@ metadata:
   name: go-app2-service
 spec:
   type: ClusterIP
-  clusterIP: None
+#  clusterIP: None
   selector:
     app: go-app2
   ports:
-  - name: go-app2-http
+  - name: http-go-app2
     protocol: TCP
-    port: 3000
+    port: 80
+    targetPort: 3000
