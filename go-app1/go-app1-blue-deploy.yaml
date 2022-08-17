@@ -16,7 +16,7 @@ spec:
       labels:
         app: go-app1
         deploy: blue
-        version: v0.1.78
+        version: v0.1.79
     spec:
       containers:
       - env:
@@ -24,7 +24,7 @@ spec:
           value: app1
         - name: MONGO_SVC
           value: mongo-service.default
-        image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.78
+        image: 287241598491.dkr.ecr.us-west-2.amazonaws.com/application-build-docker-images:v0.1.79
         name: go-app
         ports:
         - containerPort: 3000
